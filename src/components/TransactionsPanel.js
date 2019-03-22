@@ -1,11 +1,14 @@
-import React from 'react';
-import TransactionRow from './TransactionRow';
+import React from 'react'
+import TransactionRow from './TransactionRow'
+import { connect } from 'react-redux'
 
 function TransactionsPanel(props) {
-  return ( 
+  return (
     <div className="panel panel-default">
       <div className="panel-heading">
-          <h3 className="panel-title"><i className="fa fa-money fa-fw" /> Transactions Panel</h3>
+        <h3 className="panel-title">
+          <i className="fa fa-money fa-fw" /> Transactions Panel
+        </h3>
       </div>
       <div className="panel-body">
         <div className="table-responsive">
@@ -19,20 +22,24 @@ function TransactionsPanel(props) {
               </tr>
             </thead>
             <tbody>
-              {
-                props.orders.map(function (order,i) {
-                  return <TransactionRow key={i} order={order} />;
-                })
-              }
+              {props.orders.map(function(order, i) {
+                return <TransactionRow key={i} order={order} />
+              })}
             </tbody>
           </table>
         </div>
         <div className="text-right">
-          <a href="#">View All Transactions <i className="fa fa-arrow-circle-right" /></a>
+          <a href="#">
+            View All Transactions <i className="fa fa-arrow-circle-right" />
+          </a>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default TransactionsPanel;
+const mapStateToProps = state => ({
+  orders: state.orders
+})
+
+export default connect(mapStateToProps)(TransactionsPanel)
