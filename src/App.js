@@ -1,6 +1,5 @@
 import React from 'react'
 import TopNav from './components/TopNav'
-import PropTypes from 'prop-types'
 import AreaChart from './components/AreaChart'
 import Comments from './components/Comments'
 import DonutChart from './components/DonutChart'
@@ -11,7 +10,7 @@ import TasksPanel from './components/TasksPanel'
 import Tickets from './components/Tickets'
 import TransactionsPanel from './components/TransactionsPanel'
 
-function App(props) {
+function App() {
   return (
     <div>
       <div id="wrapper">
@@ -57,18 +56,6 @@ function App(props) {
       </div>
     </div>
   )
-}
-
-App.propTypes = {
-  dateTime: PropTypes.string.isRequired,
-  newComments: PropTypes.number.isRequired,
-  newTasks: PropTypes.number.isRequired,
-  newOrders: PropTypes.number.isRequired,
-  tickets: PropTypes.number.isRequired,
-  orders: PropTypes.array.isRequired,
-  taskItem: PropTypes.string.isRequired,
-  messages: PropTypes.array,
-  tasks: PropTypes.array
 }
 
 export default App
